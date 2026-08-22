@@ -9,13 +9,19 @@ const generateToken = (userId) => {
 // @route  POST /api/auth/register
 exports.register = async (req, res) => {
   try {
-    const { name, email, password } = req.body;
+    const { name, email, password, role } = req.body;
 
     if (!name || !email || !password) {
       return res.status(400).json({ message: "Name, email and password are required" });
     }
     if (password.length < 6) {
       return res.status(400).json({ message: "Password must be at least 6 characters long" });
+    }
+
+    // Validate role if provided
+    const validRoles = ["job_seeker", "employer", "admin"];
+    if (role && !validRoles.includes(role)) {
+      return res.status(400).json({ message: "Invalid role. Must be job_seeker, employer, or admin" });
     }
 
     const existingUser = await User.findOne({ email: email.toLowerCase() });
@@ -26,7 +32,12 @@ exports.register = async (req, res) => {
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
 
-    const user = await User.create({ name, email, password: hashedPassword });
+    const user = await User.create({ 
+      name, 
+      email, 
+      password: hashedPassword,
+      role: role || "job_seeker" // Default to job_seeker if not provided
+    });
     const token = generateToken(user._id);
 
     res.status(201).json({ token, user: user.toSafeObject() });

@@ -20,6 +20,8 @@ const Jobs         = lazy(() => import("./pages/Jobs/Jobs"));
 const Messages     = lazy(() => import("./pages/Messages/Messages"));
 const Notifications= lazy(() => import("./pages/Notifications/Notifications"));
 const Settings     = lazy(() => import("./pages/Settings/Settings"));
+const MyApplications = lazy(() => import("./pages/MyApplications/MyApplications"));
+const EmployerDashboard = lazy(() => import("./pages/EmployerDashboard/EmployerDashboard"));
 
 const PageLoader = () => (
   <div className="page-container">
@@ -77,6 +79,12 @@ function App() {
             } />
             <Route path="/jobs" element={
               <ProtectedRoute><PageTransition><Jobs /></PageTransition></ProtectedRoute>
+            } />
+            <Route path="/my-applications" element={
+              <ProtectedRoute><PageTransition><MyApplications /></PageTransition></ProtectedRoute>
+            } />
+            <Route path="/employer-dashboard" element={
+              <ProtectedRoute><PageTransition><EmployerDashboard /></PageTransition></ProtectedRoute>
             } />
             <Route path="/messages" element={
               <ProtectedRoute><PageTransition><Messages /></PageTransition></ProtectedRoute>

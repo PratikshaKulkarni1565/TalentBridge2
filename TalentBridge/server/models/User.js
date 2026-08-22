@@ -38,7 +38,7 @@ const userSchema = new mongoose.Schema(
     education: { type: [educationSchema], default: [] },
     experience: { type: [experienceSchema], default: [] },
     connections: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
-    role: { type: String, enum: ["user", "recruiter", "admin"], default: "user" },
+    role: { type: String, enum: ["job_seeker", "employer", "admin"], default: "job_seeker" },
   },
   { timestamps: true }
 );

@@ -7,6 +7,7 @@ const Signup = () => {
   const [name, setName]         = useState("");
   const [email, setEmail]       = useState("");
   const [password, setPassword] = useState("");
+  const [role, setRole]         = useState("job_seeker");
   const [error, setError]       = useState("");
   const [loading, setLoading]   = useState(false);
   const { register } = useAuth();
@@ -17,7 +18,7 @@ const Signup = () => {
     setError("");
     setLoading(true);
     try {
-      await register(name, email, password);
+      await register(name, email, password, role);
       navigate("/");
     } catch (err) {
       setError(err.response?.data?.message || "Registration failed. Please try again.");
@@ -45,6 +46,11 @@ const Signup = () => {
           <input id="email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} required placeholder="you@example.com" />
           <label htmlFor="password">Password</label>
           <input id="password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} minLength={6} required placeholder="Min. 6 characters" />
+          <label htmlFor="role">I am a</label>
+          <select id="role" value={role} onChange={(e) => setRole(e.target.value)} required>
+            <option value="job_seeker">Job Seeker</option>
+            <option value="employer">Employer</option>
+          </select>
           <button type="submit" disabled={loading} style={{ width: "100%", marginTop: 8 }}>
             {loading ? "Creating account…" : "Sign Up"}
           </button>

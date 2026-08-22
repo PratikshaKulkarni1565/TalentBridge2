@@ -1,12 +1,22 @@
 const Job = require("../models/Job");
 const Notification = require("../models/Notification");
+const User = require("../models/User");
 
 // @route POST /api/jobs
 exports.createJob = async (req, res) => {
   try {
-    const { company, title, description, location, salary, jobType, skillsRequired } = req.body;
+    const { 
+      company, title, description, location, salary, jobType, skillsRequired,
+      workplaceType, employmentType, salaryMin, salaryMax, experienceLevel, education, applicationDeadline 
+    } = req.body;
     if (!company || !title || !description) {
       return res.status(400).json({ message: "Company, title and description are required" });
+    }
+
+    // Check if user is employer or admin
+    const user = await User.findById(req.userId);
+    if (!user || (user.role !== "employer" && user.role !== "admin")) {
+      return res.status(403).json({ message: "Only employers can post jobs" });
     }
 
     const job = await Job.create({
@@ -17,6 +27,13 @@ exports.createJob = async (req, res) => {
       salary,
       jobType,
       skillsRequired,
+      workplaceType,
+      employmentType,
+      salaryMin,
+      salaryMax,
+      experienceLevel,
+      education,
+      applicationDeadline,
       createdBy: req.userId,
     });
 
@@ -29,17 +46,27 @@ exports.createJob = async (req, res) => {
 // @route GET /api/jobs
 exports.getJobs = async (req, res) => {
   try {
-    const { search, location, jobType } = req.query;
-    const query = {};
+    const { 
+      search, location, jobType, employmentType, workplaceType, experienceLevel, skills 
+    } = req.query;
+    const query = { status: "Active" }; // Only show active jobs by default
 
     if (search) {
       query.$or = [
         { title: { $regex: search, $options: "i" } },
         { company: { $regex: search, $options: "i" } },
+        { description: { $regex: search, $options: "i" } },
       ];
     }
     if (location) query.location = { $regex: location, $options: "i" };
     if (jobType) query.jobType = jobType;
+    if (employmentType) query.employmentType = employmentType;
+    if (workplaceType) query.workplaceType = workplaceType;
+    if (experienceLevel) query.experienceLevel = experienceLevel;
+    if (skills) {
+      const skillArray = skills.split(",").map(s => s.trim());
+      query.skillsRequired = { $in: skillArray };
+    }
 
     const jobs = await Job.find(query).sort({ createdAt: -1 }).populate("createdBy", "name profilePicture");
     res.status(200).json(jobs);
@@ -59,32 +86,9 @@ exports.getJobById = async (req, res) => {
   }
 };
 
-// @route PUT /api/jobs/:id/apply
+// @route PUT /api/jobs/:id/apply (deprecated - use /api/applications instead)
 exports.applyToJob = async (req, res) => {
-  try {
-    const job = await Job.findById(req.params.id);
-    if (!job) return res.status(404).json({ message: "Job not found" });
-
-    const alreadyApplied = job.applicants.some((id) => id.toString() === req.userId);
-    if (alreadyApplied) {
-      return res.status(409).json({ message: "You have already applied to this job" });
-    }
-
-    job.applicants.push(req.userId);
-    await job.save();
-
-    await Notification.create({
-      userId: job.createdBy,
-      fromUser: req.userId,
-      type: "job_application",
-      message: `applied to your job posting: ${job.title}`,
-      link: `/jobs/${job._id}`,
-    });
-
-    res.status(200).json({ message: "Application submitted successfully" });
-  } catch (error) {
-    res.status(500).json({ message: "Failed to apply to job", error: error.message });
-  }
+  return res.status(410).json({ message: "This endpoint is deprecated. Use POST /api/applications instead" });
 };
 
 // @route DELETE /api/jobs/:id
