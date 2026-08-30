@@ -1,5 +1,5 @@
-﻿@import "tailwindcss"; 
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+﻿@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
 
 :root { 
 /* Dark Theme (Default) */
@@ -371,7 +371,7 @@ border-radius: var(--radius); padding: 12px; margin-bottom: 8px; cursor: pointer
 .messages-sidebar { height: auto; } 
 }
 
-/* â”€â”€ Skeleton Loading â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */ 
+/* ── Skeleton Loading ─────────────────────────────────────────────────────── */ 
 @keyframes shimmer { 
 0%   { background-position: -400px 0; } 
 100% { background-position: 400px 0; } 
@@ -386,7 +386,7 @@ border-radius: 6px;
 .skel-line   { height: 14px; } 
 .skel-block  { height: 120px; width: 100%; }
 
-/* â”€â”€ Drag & Drop â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */ 
+/* ── Drag & Drop ──────────────────────────────────────────────────────────── */ 
 .drag-handle { 
 position: absolute; 
 top: 8px; right: 8px; 
@@ -400,11 +400,11 @@ transition: background 0.15s;
 } 
 .drag-handle:hover { background: var(--tb-bg); }
 
-/* â”€â”€ Profile Widget â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */ 
+/* ── Profile Widget ───────────────────────────────────────────────────────── */ 
 .profile-widget { display: flex; align-items: center; gap: 14px; } 
 .profile-widget-avatar { width: 60px; height: 60px; border-radius: 50%; object-fit: cover; border: 3px solid var(--tb-teal); }
 
-/* â”€â”€ Rich Text Editor â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */ 
+/* ── Rich Text Editor ─────────────────────────────────────────────────────── */ 
 .rich-editor-wrapper { border: 1px solid var(--tb-border); border-radius: var(--radius); overflow: hidden; margin-bottom: 10px; } 
 .rich-editor-toolbar { 
 display: flex; flex-wrap: wrap; gap: 4px; padding: 6px 8px; 
@@ -428,7 +428,7 @@ height: 0;
 } 
 .rich-editor-content ul { padding-left: 20px; }
 
-/* â”€â”€ Image Preview â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */ 
+/* ── Image Preview ────────────────────────────────────────────────────────── */ 
 .image-preview-wrapper { position: relative; display: inline-block; margin: 8px 0; } 
 .image-preview { max-width: 100%; max-height: 240px; border-radius: var(--radius); display: block; } 
 .remove-preview-btn { 
@@ -446,7 +446,7 @@ transition: background 0.15s;
 } 
 .image-upload-label:hover { background: var(--tb-border); }
 
-/* â”€â”€ Search Filters â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */ 
+/* ── Search Filters ───────────────────────────────────────────────────────── */ 
 .filter-toggle-btn { background: var(--tb-bg); color: var(--tb-text); border: 1px solid var(--tb-border); display: flex; align-items: center; gap: 6px; } 
 .filter-badge { background: var(--tb-teal); color: white; border-radius: 50%; width: 18px; height: 18px; font-size: 0.7rem; display: inline-flex; align-items: center; justify-content: center; } 
 .filters-panel { background: var(--tb-card); border: 1px solid var(--tb-border); border-radius: var(--radius); padding: 16px; margin-bottom: 16px; } 
@@ -471,7 +471,7 @@ border-radius: 20px; font-size: 0.82rem;
 .skill-suggestions { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 6px; } 
 .clear-filters-btn { background: transparent; color: var(--tb-danger); border: 1px solid var(--tb-danger); font-size: 0.85rem; padding: 6px 14px; }
 
-/* â”€â”€ Notification Badge â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */ 
+/* ── Notification Badge ───────────────────────────────────────────────────── */ 
 .notif-link { position: relative; display: flex; align-items: center; } 
 .navbar-badge { 
 position: absolute; top: -6px; right: -8px; 
@@ -485,16 +485,16 @@ border-radius: 12px; font-size: 0.75rem;
 padding: 2px 8px; margin-left: 8px; font-weight: 600; 
 }
 
-/* â”€â”€ Saved Posts â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */ 
+/* ── Saved Posts ──────────────────────────────────────────────────────────── */ 
 .post-actions button.saved { color: var(--tb-teal); }
 
-/* â”€â”€ Settings Tabs â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */ 
+/* ── Settings Tabs ────────────────────────────────────────────────────────── */ 
 .settings-tabs { display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; } 
 .tab-btn { background: var(--tb-bg); color: var(--tb-text); border: 1px solid var(--tb-border); } 
 .tab-btn:hover { background: var(--tb-border); } 
 .active-tab { background: var(--tb-teal) !important; color: white !important; border-color: var(--tb-teal) !important; }
 
-/* â”€â”€ Theme Picker â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */ 
+/* ── Theme Picker ─────────────────────────────────────────────────────────── */ 
 .theme-mode-row { display: flex; gap: 10px; flex-wrap: wrap; } 
 .theme-mode-btn { background: var(--tb-bg); color: var(--tb-text); border: 2px solid var(--tb-border); padding: 8px 16px; } 
 .theme-mode-btn:hover { border-color: var(--tb-teal); } 
@@ -509,10 +509,10 @@ border: 2px solid var(--tb-border); padding: 6px 14px;
 .active-accent { border-color: var(--accent-color) !important; } 
 .accent-dot { width: 14px; height: 14px; border-radius: 50%; flex-shrink: 0; }
 
-/* â”€â”€ Dark mode text fix â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */ 
+/* ── Dark mode text fix ───────────────────────────────────────────────────── */ 
 h1, h2, h3, h4 { color: var(--tb-text); }
 
-/* â”€â”€ Command Palette â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */ 
+/* ── Command Palette ──────────────────────────────────────────────────────── */ 
 .cmd-overlay { 
 position: fixed; inset: 0; z-index: 1000; 
 background: rgba(0,0,0,0.5); 
@@ -569,7 +569,7 @@ border-radius: 4px; padding: 1px 5px; font-family: monospace;
 cursor: pointer; 
 }
 
-/* â”€â”€ Profile Strength Meter â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */ 
+/* ── Profile Strength Meter ───────────────────────────────────────────────── */ 
 .strength-card { 
 background: var(--tb-card); border: 1px solid var(--tb-border); 
 border-radius: var(--radius); padding: 18px; margin-bottom: 16px; 
@@ -591,7 +591,7 @@ font-size: 0.88rem; color: var(--tb-muted);
 .strength-item.done { color: var(--tb-text); } 
 .strength-item.done span:first-child { color: #16A34A; font-weight: 700; }
 
-/* â”€â”€ Skill Chart â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */ 
+/* ── Skill Chart ──────────────────────────────────────────────────────────── */ 
 .skill-chart-wrapper { 
 margin-top: 20px; 
 background: var(--tb-bg); 
@@ -600,7 +600,7 @@ padding: 12px 0;
 } 
 .skill-chart-wrapper h3 { padding: 0 4px; margin-bottom: 4px; }
 
-/* â”€â”€ Accessibility focus styles â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */ 
+/* ── Accessibility focus styles ───────────────────────────────────────────── */ 
 :focus-visible { 
 outline: 2px solid var(--tb-teal); 
 outline-offset: 2px; 
@@ -608,9 +608,9 @@ border-radius: 4px;
 } 
 button:focus-visible, a:focus-visible { outline: 2px solid var(--tb-teal); outline-offset: 2px; }
 
-/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• 
-DASHBOARD â€” LinkedIn-inspired 3-column layout 
-â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+/* ══════════════════════════════════════════════════════════════════════════ 
+DASHBOARD — LinkedIn-inspired 3-column layout 
+══════════════════════════════════════════════════════════════════════════ */
 
 /* Root & Grid */ 
 .dashboard-root { 
@@ -677,7 +677,7 @@ transition: opacity 0.15s;
 } 
 .sidebar-see-all:hover { opacity: 0.75; }
 
-/* â”€â”€ Left Sidebar â”€â”€ */ 
+/* ── Left Sidebar ── */ 
 .profile-card-sidebar { padding: 0; overflow: hidden; } 
 .profile-card-cover { 
 height: 72px; 
@@ -797,7 +797,7 @@ border: 1px solid rgba(255,255,255,0.06);
 .saved-post-author { font-size: 0.8rem; font-weight: 600; color: rgba(255,255,255,0.7); margin: 0 0 2px; } 
 .saved-post-preview { font-size: 0.78rem; color: rgba(255,255,255,0.4); margin: 0; }
 
-/* â”€â”€ Right Sidebar â”€â”€ */ 
+/* ── Right Sidebar ── */ 
 .trending-list { display: flex; flex-direction: column; gap: 8px; } 
 .trending-item { 
 display: flex; 
@@ -883,7 +883,7 @@ transition: background 0.15s;
 } 
 .suggestion-connect-btn:hover { background: rgba(0,168,150,0.3); }
 
-/* â”€â”€ Center Column â”€â”€ */ 
+/* ── Center Column ── */ 
 .dashboard-center { min-width: 0; }
 
 .welcome-banner { 
@@ -1007,7 +1007,7 @@ background: linear-gradient(90deg, rgba(255,255,255,0.06) 25%, rgba(255,255,255,
 background-size: 800px 100%; 
 }
 
-/* â”€â”€ Create Post Modal â”€â”€ */ 
+/* ── Create Post Modal ── */ 
 .modal-backdrop { 
 position: fixed; 
 inset: 0; 
@@ -1112,7 +1112,7 @@ transition: background 0.15s, opacity 0.15s;
 .modal-post-btn:hover:not(:disabled) { background: var(--tb-teal-dark); } 
 .modal-post-btn:disabled { opacity: 0.45; cursor: not-allowed; }
 
-/* â”€â”€ PWA install banner (shown via JS) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */ 
+/* ── PWA install banner (shown via JS) ────────────────────────────────────── */ 
 .pwa-banner { 
 position: fixed; bottom: 16px; left: 50%; transform: translateX(-50%); 
 background: var(--tb-navy); color: white; 
@@ -1124,4 +1124,336 @@ font-size: 0.9rem;
 .pwa-banner button { background: var(--tb-teal); padding: 6px 14px; font-size: 0.85rem; } 
 .pwa-banner .pwa-dismiss { background: transparent; color: rgba(255,255,255,0.6); padding: 4px 8px; }
 
-/* Landing page styles → src/pages/Landing/landing.css */
+/* ══════════════════════════════════════════════════════════════════════════ 
+LANDING PAGE 
+══════════════════════════════════════════════════════════════════════════ */
+
+.landing-root { 
+background: #0d1117; 
+color: rgba(255,255,255,0.85); 
+min-height: 100vh; 
+font-family: 'Inter', sans-serif; 
+}
+
+/* ── Landing Navbar ── */ 
+.landing-nav { 
+display: flex; 
+align-items: center; 
+justify-content: space-between; 
+padding: 16px 48px; 
+border-bottom: 1px solid var(--tb-border); 
+position: sticky; 
+top: 0; 
+z-index: 50; 
+background: rgba(13,17,23,0.95); 
+backdrop-filter: blur(12px); 
+transition: background 0.3s ease, border-color 0.3s ease;
+} 
+.landing-nav-brand { 
+font-family: 'Manrope', sans-serif; 
+font-weight: 800; 
+font-size: 1.25rem; 
+background: linear-gradient(135deg, #fff 30%, var(--tb-teal)); 
+-webkit-background-clip: text; 
+-webkit-text-fill-color: transparent; 
+background-clip: text; 
+} 
+.landing-nav-actions { 
+display: flex; 
+align-items: center; 
+gap: 10px; 
+} 
+.landing-nav-signin { 
+padding: 8px 18px; 
+border-radius: 8px; 
+font-size: 0.88rem; 
+font-weight: 600; 
+color: var(--tb-muted); 
+border: 1px solid var(--tb-border); 
+transition: background 0.15s, color 0.15s; 
+} 
+.landing-nav-signin:hover { 
+background: var(--tb-bg); 
+color: var(--tb-text); 
+} 
+.landing-nav-signup { 
+padding: 8px 18px; 
+border-radius: 8px; 
+font-size: 0.88rem; 
+font-weight: 600; 
+background: var(--tb-teal); 
+color: #fff; 
+transition: background 0.15s; 
+} 
+.landing-nav-signup:hover { background: var(--tb-teal-dark); color: #fff; }
+
+/* ── Hero ── */ 
+.landing-hero { 
+max-width: 760px; 
+margin: 0 auto; 
+padding: 80px 24px 64px; 
+text-align: center; 
+display: flex; 
+flex-direction: column; 
+align-items: center; 
+gap: 20px; 
+} 
+.landing-hero-badge { 
+display: inline-block; 
+padding: 5px 14px; 
+border-radius: 20px; 
+background: rgba(0,168,150,0.12); 
+border: 1px solid rgba(0,168,150,0.3); 
+color: var(--tb-teal); 
+font-size: 0.8rem; 
+font-weight: 600; 
+letter-spacing: 0.04em; 
+text-transform: uppercase; 
+} 
+.landing-hero-title { 
+font-family: 'Manrope', sans-serif; 
+font-size: clamp(2rem, 5vw, 3.2rem); 
+font-weight: 800; 
+color: #fff; 
+line-height: 1.15; 
+margin: 0; 
+} 
+.landing-hero-sub { 
+font-size: 1.05rem; 
+color: rgba(255,255,255,0.55); 
+line-height: 1.7; 
+max-width: 580px; 
+margin: 0; 
+} 
+.landing-hero-cta { 
+display: flex; 
+gap: 12px; 
+flex-wrap: wrap; 
+justify-content: center; 
+} 
+.landing-cta-primary { 
+padding: 12px 28px; 
+border-radius: 8px; 
+background: var(--tb-teal); 
+color: #fff; 
+font-weight: 700; 
+font-size: 0.95rem; 
+transition: background 0.15s, transform 0.15s; 
+} 
+.landing-cta-primary:hover { background: var(--tb-teal-dark); color: #fff; transform: translateY(-1px); } 
+.landing-cta-secondary { 
+padding: 12px 28px; 
+border-radius: 8px; 
+border: 1px solid rgba(255,255,255,0.15); 
+color: rgba(255,255,255,0.75); 
+font-weight: 600; 
+font-size: 0.95rem; 
+transition: background 0.15s, color 0.15s; 
+} 
+.landing-cta-secondary:hover { background: rgba(255,255,255,0.07); color: #fff; } 
+.landing-hero-checks { 
+display: flex; 
+gap: 20px; 
+flex-wrap: wrap; 
+justify-content: center; 
+} 
+.landing-check-item { 
+display: flex; 
+align-items: center; 
+gap: 6px; 
+font-size: 0.82rem; 
+color: rgba(255,255,255,0.4); 
+} 
+.landing-check-item svg { color: var(--tb-teal); flex-shrink: 0; }
+
+/* ── Stats Bar ── */ 
+.landing-stats { 
+display: flex; 
+justify-content: center; 
+gap: 0; 
+border-top: 1px solid rgba(255,255,255,0.07); 
+border-bottom: 1px solid rgba(255,255,255,0.07); 
+background: rgba(255,255,255,0.02); 
+} 
+.landing-stat { 
+flex: 1; 
+max-width: 200px; 
+display: flex; 
+flex-direction: column; 
+align-items: center; 
+padding: 28px 16px; 
+border-right: 1px solid rgba(255,255,255,0.07); 
+} 
+.landing-stat:last-child { border-right: none; } 
+.landing-stat-val { 
+font-family: 'Manrope', sans-serif; 
+font-size: 1.8rem; 
+font-weight: 800; 
+color: #fff; 
+line-height: 1; 
+} 
+.landing-stat-lbl { 
+font-size: 0.8rem; 
+color: rgba(255,255,255,0.4); 
+margin-top: 4px; 
+}
+
+/* ── Sections ── */ 
+.landing-section { 
+max-width: 1100px; 
+margin: 0 auto; 
+padding: 72px 24px; 
+} 
+.landing-section-alt { 
+background: rgba(255,255,255,0.02); 
+max-width: 100%; 
+border-top: 1px solid rgba(255,255,255,0.06); 
+border-bottom: 1px solid rgba(255,255,255,0.06); 
+} 
+.landing-section-alt > * { 
+max-width: 1100px; 
+margin-left: auto; 
+margin-right: auto; 
+} 
+.landing-section-header { 
+text-align: center; 
+margin-bottom: 48px; 
+} 
+.landing-section-header h2 { 
+font-family: 'Manrope', sans-serif; 
+font-size: clamp(1.4rem, 3vw, 2rem); 
+font-weight: 800; 
+color: #fff; 
+margin: 0 0 12px; 
+} 
+.landing-section-header p { 
+font-size: 1rem; 
+color: rgba(255,255,255,0.45); 
+max-width: 520px; 
+margin: 0 auto; 
+line-height: 1.6; 
+}
+
+/* ── Features Grid ── */ 
+.landing-features-grid { 
+display: grid; 
+grid-template-columns: repeat(3, 1fr); 
+gap: 16px; 
+} 
+@media (max-width: 900px) { .landing-features-grid { grid-template-columns: repeat(2, 1fr); } } 
+@media (max-width: 560px) { .landing-features-grid { grid-template-columns: 1fr; } }
+
+.landing-feature-card { 
+background: rgba(255,255,255,0.03); 
+border: 1px solid rgba(255,255,255,0.07); 
+border-radius: 12px; 
+padding: 24px; 
+transition: border-color 0.2s, background 0.2s; 
+} 
+.landing-feature-card:hover { 
+border-color: rgba(0,168,150,0.3); 
+background: rgba(0,168,150,0.04); 
+} 
+.landing-feature-icon { 
+width: 44px; 
+height: 44px; 
+border-radius: 10px; 
+background: rgba(0,168,150,0.12); 
+color: var(--tb-teal); 
+display: flex; 
+align-items: center; 
+justify-content: center; 
+margin-bottom: 14px; 
+} 
+.landing-feature-card h4 { 
+font-size: 0.95rem; 
+font-weight: 700; 
+color: #fff; 
+margin: 0 0 8px; 
+} 
+.landing-feature-card p { 
+font-size: 0.85rem; 
+color: rgba(255,255,255,0.45); 
+line-height: 1.6; 
+margin: 0; 
+}
+
+/* ── Steps ── */ 
+.landing-steps { 
+display: grid; 
+grid-template-columns: repeat(4, 1fr); 
+gap: 24px; 
+} 
+@media (max-width: 860px) { .landing-steps { grid-template-columns: repeat(2, 1fr); } } 
+@media (max-width: 480px) { .landing-steps { grid-template-columns: 1fr; } }
+
+.landing-step { 
+text-align: center; 
+padding: 24px 16px; 
+} 
+.landing-step-num { 
+font-family: 'Manrope', sans-serif; 
+font-size: 2rem; 
+font-weight: 800; 
+color: var(--tb-teal); 
+opacity: 0.6; 
+margin-bottom: 12px; 
+line-height: 1; 
+} 
+.landing-step h4 { 
+font-size: 0.95rem; 
+font-weight: 700; 
+color: #fff; 
+margin: 0 0 8px; 
+} 
+.landing-step p { 
+font-size: 0.85rem; 
+color: rgba(255,255,255,0.45); 
+line-height: 1.6; 
+margin: 0; 
+}
+
+/* ── CTA Section ── */ 
+.landing-cta-section { 
+text-align: center; 
+padding: 72px 24px; 
+max-width: 600px; 
+margin: 0 auto; 
+} 
+.landing-cta-section h2 { 
+font-family: 'Manrope', sans-serif; 
+font-size: clamp(1.4rem, 3vw, 2rem); 
+font-weight: 800; 
+color: #fff; 
+margin: 0 0 12px; 
+} 
+.landing-cta-section p { 
+font-size: 1rem; 
+color: rgba(255,255,255,0.45); 
+margin: 0 0 28px; 
+line-height: 1.6; 
+}
+
+/* ── Footer ── */ 
+.landing-footer { 
+border-top: 1px solid rgba(255,255,255,0.07); 
+padding: 24px 48px; 
+display: flex; 
+align-items: center; 
+justify-content: space-between; 
+flex-wrap: wrap; 
+gap: 8px; 
+} 
+.landing-footer p { 
+font-size: 0.82rem; 
+color: rgba(255,255,255,0.3); 
+margin: 0; 
+}
+
+@media (max-width: 600px) { 
+.landing-nav { padding: 14px 20px; } 
+.landing-footer { padding: 20px; flex-direction: column; align-items: flex-start; } 
+.landing-stats { flex-wrap: wrap; } 
+.landing-stat { min-width: 50%; border-bottom: 1px solid rgba(255,255,255,0.07); } 
+}
+

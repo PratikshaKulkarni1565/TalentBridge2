@@ -14,7 +14,7 @@ const HowItWorks = () => (
   >
     <div className="lp-container">
       <motion.div className="lp-section-hd" variants={fadeUp}>
-        <span className="lp-section-label">How It Works</span>
+        <span className="lp-section-label">Getting Started</span>
         <h2>Get Started in Minutes</h2>
         <p>Build your professional presence and start discovering opportunities.</p>
       </motion.div>

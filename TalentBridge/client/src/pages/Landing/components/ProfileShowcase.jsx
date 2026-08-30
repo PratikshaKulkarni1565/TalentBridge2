@@ -5,7 +5,7 @@ import { fadeUp, stagger } from "../animations";
 
 const ProfileShowcase = () => (
   <motion.section
-    className="lp-section"
+    className="lp-section lp-section-alt"
     initial="hidden"
     whileInView="show"
     viewport={{ once: true, amount: 0.15 }}

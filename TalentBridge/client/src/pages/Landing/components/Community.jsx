@@ -12,7 +12,7 @@ const ICONS = {
 
 const Community = () => (
   <motion.section
-    className="lp-section"
+    className="lp-section lp-section-alt"
     id="community"
     initial="hidden"
     whileInView="show"
@@ -36,7 +36,7 @@ const Community = () => (
                 className="lp-community-icon"
                 style={{ background: c.color + "14", color: c.color }}
               >
-                <Icon size={22} />
+                <Icon size={24} />
               </div>
               <h4>{c.title}</h4>
               <p>{c.desc}</p>

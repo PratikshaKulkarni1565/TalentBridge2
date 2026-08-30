@@ -26,6 +26,7 @@ const Features = () => (
   >
     <div className="lp-container">
       <motion.div className="lp-section-hd" variants={fadeUp}>
+        <span className="lp-section-label">Platform Features</span>
         <h2>Everything You Need to Grow Your Career</h2>
         <p>
           TalentBridge brings professional networking, career discovery, and personal branding together in one place.
@@ -36,7 +37,7 @@ const Features = () => (
           const Icon = ICONS[f.icon];
           return (
             <motion.div key={f.title} className="lp-feature-card" variants={fadeUp}>
-              <div className="lp-feature-icon"><Icon size={20} /></div>
+              <div className="lp-feature-icon"><Icon size={22} /></div>
               <h4>{f.title}</h4>
               <p>{f.desc}</p>
             </motion.div>

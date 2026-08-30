@@ -7,7 +7,7 @@ import HeroVisual from "./HeroVisual";
 
 const Hero = ({ onScrollTo }) => (
   <section className="lp-hero">
-    <div className="lp-container lp-hero-inner">
+    <div className="lp-hero-inner">
       <motion.div className="lp-hero-left" variants={stagger} initial="hidden" animate="show">
         <motion.span className="lp-badge" variants={fadeUp}>
           Connect · Grow · Succeed
@@ -28,7 +28,11 @@ const Hero = ({ onScrollTo }) => (
           </button>
         </motion.div>
         <motion.p className="lp-hero-trust" variants={fadeUp}>
-          Built for students, professionals &amp; growing teams
+          <span>Built for students</span>
+          <span aria-hidden="true">·</span>
+          <span>professionals</span>
+          <span aria-hidden="true">·</span>
+          <span>growing teams</span>
         </motion.p>
       </motion.div>
 
