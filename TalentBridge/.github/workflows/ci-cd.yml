@@ -1,0 +1,137 @@
+name: TalentBridge CI/CD
+
+on:
+  push:
+    branches:
+      - main
+
+  workflow_dispatch:
+
+jobs:
+
+  # =========================
+  # CI
+  # =========================
+  ci:
+    name: Continuous Integration
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: |
+            server/package-lock.json
+            client/package-lock.json
+
+      # Backend
+      - name: Install backend dependencies
+        working-directory: server
+        run: npm ci
+
+      - name: Run backend tests
+        working-directory: server
+        run: npm test --if-present
+
+      # Frontend
+      - name: Install frontend dependencies
+        working-directory: client
+        run: npm ci
+
+      - name: Build frontend
+        working-directory: client
+        env:
+          VITE_API_URL: http://${{ secrets.EC2_HOST }}:5000/api
+        run: npm run build
+
+  # =========================
+  # Docker + Deployment
+  # =========================
+  deploy:
+    name: Build, Push and Deploy
+    needs: ci
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Docker Hub login
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      # Backend Docker image
+      - name: Build backend Docker image
+        run: |
+          docker build \
+            -t ${{ secrets.DOCKERHUB_USERNAME }}/talentbridge-backend:latest \
+            ./server
+
+      # Frontend Docker image
+      - name: Build frontend Docker image
+        run: |
+          docker build \
+            --build-arg VITE_API_URL=http://${{ secrets.EC2_HOST }}:5000/api \
+            -t ${{ secrets.DOCKERHUB_USERNAME }}/talentbridge-frontend:latest \
+            ./client
+
+      # Push backend
+      - name: Push backend image
+        run: |
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/talentbridge-backend:latest
+
+      # Push frontend
+      - name: Push frontend image
+        run: |
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/talentbridge-frontend:latest
+
+      # Deploy to EC2
+      - name: Deploy to AWS EC2
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USER }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script: |
+            set -e
+
+            echo "Pulling latest backend image..."
+            docker pull ${{ secrets.DOCKERHUB_USERNAME }}/talentbridge-backend:latest
+
+            echo "Pulling latest frontend image..."
+            docker pull ${{ secrets.DOCKERHUB_USERNAME }}/talentbridge-frontend:latest
+
+            echo "Stopping old backend..."
+            docker rm -f talentbridge-backend || true
+
+            echo "Starting new backend..."
+            docker run -d \
+              --name talentbridge-backend \
+              --env-file ~/backend.env \
+              -p 5000:5000 \
+              --restart unless-stopped \
+              ${{ secrets.DOCKERHUB_USERNAME }}/talentbridge-backend:latest
+
+            echo "Stopping old frontend..."
+            docker rm -f talentbridge-frontend || true
+
+            echo "Starting new frontend..."
+            docker run -d \
+              --name talentbridge-frontend \
+              -p 80:80 \
+              --restart unless-stopped \
+              ${{ secrets.DOCKERHUB_USERNAME }}/talentbridge-frontend:latest
+
+            echo "Checking containers..."
+            docker ps
+
+            echo "Deployment completed successfully!"
